@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Доклад: Making C++ Safe, Healthy, and Efficient</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        h1 {
+            text-align: center;
+            margin-bottom: 50px;
+            margin-top: 30px;
+        }
+        .container {
+            max-width: 1000px;
+        }
+        .row > div {
+            background-color: pink;
+            border: 2px solid black;
+            padding: 20px;
+        }
+        .speaker-box {
+            background-color: pink;
+        }
+        .stat-box {
+            background-color: yellow;
+            border: 2px solid black;
+            padding: 20px;
+        }
+        .concept-box {
+            background-color: lightblue;
+        }
+        .highlight {
+            background-color: lightgreen;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0;
+            background-color: white;
+        }
+        td, th {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        .btn-back {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 8px 16px;
+            background-color: gray;
+            color: white;
+            text-decoration: none;
+            border: 1px solid black;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 15px;
+            background-color: pink;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://evzhenij.github.io/" class="btn-back">← На главную</a>
+        
+        <h1>Making C++ Safe, Healthy, and Efficient</h1>
+        
+        <div class="row">
+            <div class="col-12 speaker-box">
+                <h2>О докладчике</h2>
+                <p><b>Джон Лакос (John Lakos)</b></p>
+                <p>Управляющий директор Bloomberg, эксперт по крупномасштабной разработке на C++. Автор бестселлера "Large-Scale C++ Software Design". Активный участник комитета по стандартизации C++ (WG21).</p>
+                <p><b>Тема:</b> "Making C++ Safe, Healthy, and Efficient"<br>
+                <b>Продолжительность:</b> 1 час 1 минута (CppCon 2025)</p>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <div class="concept-box">
+                    <h2>Безопасность</h2>
+                    <p>Защита от ошибок: выход за границы массива, переполнение целых чисел, нарушение контрактов</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="concept-box">
+                    <h2>Эффективность</h2>
+                    <p>Сохранение принципа "zero-overhead abstractions"</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="concept-box">
+                    <h2>Здоровье</h2>
+                    <p>Управляемость кодовой базы, продуктивность команд</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="concept-box">
+                    <h2>Контракты (Contracts)</h2>
+                    <p>Механизм проверки предусловий, постусловий и инвариантов. Официально входит в C++26 после 20 лет эволюции.</p>
+                    <p><b>Путь контрактов:</b></p>
+                    <ul>
+                        <li><b>2004</b> — Bloomberg внедряет контракты в BDE</li>
+                        <li><b>2012-2015</b> — первые предложения в комитет C++</li>
+                        <li><b>2022-2025</b> — Bloomberg спонсирует внедрение в Clang и GCC</li>
+                        <li><b>C++26</b> — контракты в стандарте</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="concept-box">
+                    <h2>Ошибочное поведение (Erroneous Behavior — EB)</h2>
+                    <p>В отличие от <b>неопределенного поведения (UB)</b>, которое делает программу недействительной, <b>EB</b> локализовано и безопасно.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div style="background-color: #f8d7da; padding:15px; border:2px solid red;">
+                                <b>Неопределенное поведение (UB)</b><br>
+                                - Программа некорректна целиком<br>
+                                - Компилятор может сделать что угодно
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="background-color: #d1ecf1; padding:15px; border:2px solid blue;">
+                                <b>Ошибочное поведение (EB)</b><br>
+                                - Программа корректна, операция возвращает неспецифицированное значение<br>
+                                - Можно добавлять проверки без поломки программы
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-3"><b>Примеры EB:</b></p>
+                    <ul>
+                        <li>Чтение неинициализированной памяти</li>
+                        <li>Знаковое целочисленное переполнение</li>
+                        <li>Выход за границы массива</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-12 stat-box">
+                <h2>Статистика проблем в кодовой базе Bloomberg</h2>
+                <p>Данные на основе миллионов строк кода:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Проблема</th>
+                            <th>Доля</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Выход за границы вектора</th>
+                            <th>65%</th>
+                        </tr>
+                        <tr>
+                            <th>Нарушение контрактов</th>
+                            <th>20%</th>
+                        </tr>
+                        <tr>
+                            <th>Ошибочное поведение</th>
+                            <th>10%</th>
+                        </tr>
+                        <tr>
+                            <th>Проблемы времени жизни</th>
+                            <th>2%</th>
+                        </tr>
+                        <tr>
+                            <th>Гонки данных</th>
+                            <th>2%</th>
+                        </tr>
+                        <tr>
+                            <th>Другое</th>
+                            <th>1%</th>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><b>Вывод:</b> контракты и четкое определение EB покрывают более 95% всех проблем.</p>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="concept-box">
+                    <h2>Взаимодействие техник безопасности</h2>
+                    <ul>
+                        <li><b>Проверка контрактов во время выполнения</b> — отлов нарушений на этапе тестирования</li>
+                        <li><b>Символическая проверка контрактов</b> — анализ кода на этапе компиляции</li>
+                        <li><b>Ошибочное поведение</b> — безопасная альтернатива для операций без потери производительности</li>
+                        <li><b>Призрачные данные (Ghost Data)</b> — статические методы гарантии корректности</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-4">
+            <div class="col-12 highlight">
+                <h2>Ключевые выводы</h2>
+                <ol>
+                    <li><b>C++26 приносит контракты</b> — фундамент для более надежного программирования</li>
+                    <li><b>Ошибочное поведение — практический компромисс</b> — миграция UB в безопасную категорию без потери производительности</li>
+                    <li><b>Безопасность — это система</b> — сочетание контрактов, статического анализа и проверок во время выполнения</li>
+                    <li><b>Промышленность инвестирует</b> — Bloomberg спонсирует внедрение в Clang и GCC</li>
+                </ol>
+            </div>
+        </div>
+        
+        <footer>
+            Слайды предоставлены Тимуром Думлером (ACCU 2025: "Контракты для C++")
+        </footer>
+    </div>
+</body>
+</html>
