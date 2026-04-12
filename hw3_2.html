@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HW.03.02 - Управление абзацами</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/homework.css">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <a href="index.html" class="btn-back">← На главную</a>
+            <a href="homeworks.html" class="btn-back btn-all">📚 Ко всем заданиям</a>
+        </div>
+        
+        <div class="task-block">
+            <button id="globalToggle" class="global-btn">Скрыть всё</button>
+            
+            <div id="block1" class="text-block">
+                <p>Первый абзац: Помогите.</p>
+                <button class="toggle-btn" data-target="block1">Скрыть</button>
+            </div>
+            
+            <div id="block2" class="text-block">
+                <p>Второй абзац: мне.</p>
+                <button class="toggle-btn" data-target="block2">Скрыть</button>
+            </div>
+            
+            <div id="block3" class="text-block">
+                <p>Третий абзац: пожалуйста.</p>
+                <button class="toggle-btn" data-target="block3">Скрыть</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/hw3_2.js"></script>
+</body>
+</html>
