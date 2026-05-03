@@ -219,3 +219,19 @@ th {
     margin-bottom: 30px;
     letter-spacing: 5px;
 }
+
+/* для виселицы */
+.hangman-canvas {
+    border: 2px solid black;
+    background-color: white;
+    margin: 20px auto;
+    display: block;
+}
+.game-status {
+    font-size: 1.2rem;
+    margin: 10px;
+    font-weight: bold;
+}
+.remaining {
+    color: red;
+}

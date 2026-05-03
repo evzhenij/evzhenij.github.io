@@ -15,10 +15,12 @@
             <h1>WEB.HW.04.03</h1>
             <h2>Игра «Виселица»</h2>
             <div class="gameArea">
-                <div class="score"></div>
-                <div class="puzzle"></div>
-                <div class="letters"></div>
-                <button>Start Game</button>
+                <canvas id="hangmanCanvas" class="hangman-canvas" width="300" height="300"></canvas>
+                <div class="score">Осталось попыток: <span id="attempts">5</span></div>
+                <div class="puzzle" id="puzzle"></div>
+                <div class="letters" id="letters"></div>
+                <div class="game-status" id="statusMessage"></div>
+                <button id="startBtn">Start Game</button>
             </div>
         </div>
     </div>
