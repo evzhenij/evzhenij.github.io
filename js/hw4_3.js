@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentWord = "";
     let guessedLetters = [];
     let wrongAttempts = 0;
-    let maxWrong = 5;
+    let maxWrong = 6;         
     let gameActive = false;
     
     const canvas = document.getElementById('hangmanCanvas');
@@ -21,23 +21,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const statusDiv = document.getElementById('statusMessage');
     const startBtn = document.getElementById('startBtn');
     
-    // Функция рисования пустой виселицы
+    // Рисуем пустую виселицу
     const drawGallows = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.lineWidth = 3;
         ctx.strokeStyle = 'black';
         ctx.fillStyle = 'black';
-        // стойка
+        // горизонтальная стойка
         ctx.beginPath();
         ctx.moveTo(50, 250);
         ctx.lineTo(250, 250);
         ctx.stroke();
+        // вертикальная стойка
         ctx.moveTo(150, 250);
         ctx.lineTo(150, 50);
         ctx.stroke();
+        // верхняя перекладина
         ctx.moveTo(150, 50);
         ctx.lineTo(220, 50);
         ctx.stroke();
+        // вертикальная часть перекладины
         ctx.moveTo(220, 50);
         ctx.lineTo(220, 80);
         ctx.stroke();
@@ -48,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.stroke();
     };
     
-    // Рисование частей тела по количеству ошибок
+    // Рисуем части тела по количеству ошибок (от 1 до 6)
     const drawBodyParts = (errors) => {
         ctx.fillStyle = 'black';
         ctx.strokeStyle = 'black';
@@ -80,6 +83,12 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.beginPath();
             ctx.moveTo(220, 190);
             ctx.lineTo(195, 220);
+            ctx.stroke();
+        }
+        if (errors >= 6) { // правая нога
+            ctx.beginPath();
+            ctx.moveTo(220, 190);
+            ctx.lineTo(245, 220);
             ctx.stroke();
         }
     };
@@ -118,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return false;
     };
     
+    // Блокируем все буквы после окончания игры
     const disableAllLetters = () => {
         const allLetterBtns = document.querySelectorAll('.boxE');
         allLetterBtns.forEach(btn => {
@@ -130,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const handleLetter = (letter, btnElement) => {
         if (!gameActive) return;
         
-        // отключаем кнопку буквы
+        // Отключаем кнопку (визуально и функционально)
         btnElement.classList.remove('boxE');
         btnElement.classList.add('used');
         btnElement.style.pointerEvents = 'none';
@@ -146,15 +156,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (letterFound) {
             updatePuzzle();
             statusDiv.textContent = "Верно!";
-            if (checkWin()) return;
+            if (checkWin()) {
+                disableAllLetters(); // блокируем буквы при победе
+            }
         } else {
             wrongAttempts++;
             attemptsSpan.textContent = maxWrong - wrongAttempts;
             updateHangman();
             statusDiv.textContent = `Ошибка! Осталось попыток: ${maxWrong - wrongAttempts}`;
             if (checkLoss()) {
-                disableAllLetters(); // блокируем все буквы при проигрыше
-                return;
+                disableAllLetters(); // блокируем буквы при проигрыше
             }
         }
     };
@@ -198,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Начальное состояние
     drawGallows();
     puzzleDiv.textContent = "";
-    attemptsSpan.textContent = "5";
+    attemptsSpan.textContent = "6";
     statusDiv.textContent = 'Нажмите "Start Game"';
     lettersDiv.innerHTML = "";
 });

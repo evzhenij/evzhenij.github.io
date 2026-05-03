@@ -197,20 +197,28 @@ th {
 .boxE {
     display: inline-block;
     width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
     border: 1px solid lightgray;
     border-radius: 5px;
     font-size: 1.5em;
     margin: 3px;
     cursor: pointer;
     background-color: white;
-}
-.boxE:hover {
-    background-color: lightgray;
+    vertical-align: middle;
 }
 .used {
     background-color: gray;
     color: white;
     cursor: not-allowed;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid gray;
+    vertical-align: middle;
 }
 .score {
     margin-bottom: 20px;
@@ -235,3 +243,4 @@ th {
 .remaining {
     color: red;
 }
+
