@@ -135,3 +135,87 @@ button:hover {
 .green {
     background-color: green;
 }
+
+
+
+/* ===== ДЛЯ HW.04.01 АККОРДЕОН ===== */
+.myText {
+    display: none;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid black;
+    margin-bottom: 5px;
+}
+.myText.active {
+    display: block !important;
+}
+.title {
+    font-size: 1.5em;
+    background-color: lightgray;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid black;
+    margin-top: 5px;
+}
+.title:hover {
+    background-color: #ddd;
+}
+
+/* ===== ДЛЯ HW.04.02 СИСТЕМА ГОЛОСОВАНИЯ ===== */
+#message {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: pink;
+}
+#addFriend, #addNew {
+    padding: 8px;
+    margin: 5px;
+}
+
+/* ===== ДЛЯ HW.04.03 ВИСЕЛИЦА ===== */
+.gameArea {
+    text-align: center;
+    font-size: 2em;
+}
+.box, .boxD {
+    display: inline-block;
+    padding: 5px;
+}
+.boxE {
+    display: inline-block;
+    width: 40px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    font-size: 1.5em;
+    margin: 3px;
+    cursor: pointer;
+    background-color: white;
+}
+.boxE:hover {
+    background-color: lightgray;
+}
+.used {
+    background-color: gray;
+    color: white;
+    cursor: not-allowed;
+}
+.score {
+    margin-bottom: 20px;
+}
+.puzzle {
+    margin-bottom: 30px;
+    letter-spacing: 5px;
+}
