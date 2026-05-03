@@ -311,6 +311,7 @@ th {
     margin: auto;
     position: relative;
     background-color: white;
+    cursor: pointer;
 }
 .game-box {
     width: 50px;
