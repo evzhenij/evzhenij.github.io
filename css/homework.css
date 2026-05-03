@@ -228,7 +228,6 @@ th {
     letter-spacing: 5px;
 }
 
-/* для виселицы */
 .hangman-canvas {
     border: 2px solid black;
     background-color: white;
@@ -244,3 +243,85 @@ th {
     color: red;
 }
 
+/* ===== WEB.HW.05.01 АНАЛИТИКА ===== */
+.track-container {
+    background-color: white;
+    border: 1px solid black;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+.track-box {
+    display: inline-block;
+    margin: 10px;
+    padding: 20px;
+    background-color: lightblue;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.track-output {
+    background-color: whitesmoke;
+    padding: 10px;
+    font-family: monospace;
+    font-size: 14px;
+}
+
+/* ===== WEB.HW.05.02 ЗВЕЗДНЫЙ РЕЙТИНГ ===== */
+.stars {
+    list-style-type: none;
+    padding: 0;
+}
+.star {
+    font-size: 2em;
+    color: lightgray;
+    display: inline-block;
+    cursor: pointer;
+}
+.star.orange {
+    color: orange;
+}
+.output {
+    background-color: lightgray;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+/* ===== WEB.HW.05.03 ОТСЛЕЖИВАНИЕ МЫШИ ===== */
+.track-area {
+    width: 400px;
+    height: 300px;
+    background-color: lightgray;
+    border: 2px solid black;
+    margin: 20px auto;
+    transition: background-color 0.2s;
+}
+.track-area.active {
+    background-color: red;
+}
+.coords-output {
+    text-align: center;
+    font-size: 1.2em;
+    margin: 10px;
+}
+
+/* ===== WEB.HW.05.04 ИГРА НА СКОРОСТЬ ===== */
+.game-output {
+    width: 500px;
+    height: 500px;
+    border: 2px solid black;
+    margin: auto;
+    position: relative;
+    background-color: white;
+}
+.game-box {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    position: absolute;
+    cursor: pointer;
+    display: none;
+}
+.game-message {
+    text-align: center;
+    padding: 10px;
+    font-size: 1.3em;
+}
