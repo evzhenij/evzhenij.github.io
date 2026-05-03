@@ -326,3 +326,16 @@ th {
     padding: 10px;
     font-size: 1.3em;
 }
+
+.game-start-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: pink;
+    border: 2px solid black;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+.game-start-btn:hover {
+    background-color: hotpink;
+}
